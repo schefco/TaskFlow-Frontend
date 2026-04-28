@@ -70,7 +70,7 @@ export default function LoginPage() {
                 <button type="submit" style={{ width: "100%" }} disabled={loading}>{loading ? "Logging in ..." : "Login"}</button>
             </form>
 
-            <p>This stie is still under construction</p>
+            <p>This site is still under construction</p>
         </div>
     );
 }
