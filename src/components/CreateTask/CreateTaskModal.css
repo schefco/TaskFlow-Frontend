@@ -1,0 +1,74 @@
+/* CreateTaskModal.css */
+
+/* Backdrop fade-in */
+.modalBackdrop {
+    @apply fixed inset-0 flex items-center justify-center;
+    background: rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.25s ease-out;
+    z-index: 50;
+}
+
+/* Modal card fade-in */
+.modalCard {
+    @apply bg-[var(--green-card)] border border-[var(--green-accent)] rounded-lg p-6 w-[450px] shadow-xl;
+    color: var(--green-text);
+    animation: scaleFadeIn 0.25s ease-out;
+}
+
+/* Header */
+.modalHeader {
+    @apply flex items-center justify-between mb-4;
+}
+
+.modalClose {
+    @apply text-lg cursor-pointer px-2;
+    color: var(--green-text);
+}
+
+/* Form */
+.formGroup {
+    @apply flex flex-col mb-4;
+}
+
+.formRow {
+    @apply flex gap-4;
+}
+
+label {
+    @apply text-sm mb-1;
+    color: var(--green-text);
+}
+
+.inputField,
+.textareaField,
+.selectField {
+    @apply w-full p-2 rounded border;
+    background: var(--green-card);
+    border-color: var(--green-accent);
+    color: var(--green-text);
+}
+
+.textareaField {
+    @apply h-24 resize-none;
+}
+
+.btnPrimary {
+    @apply mt-4 w-full py-2 rounded bg-[var(--green-accent)] text-white font-semibold;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes scaleFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

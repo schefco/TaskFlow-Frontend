@@ -1,0 +1,105 @@
+/* Users Page */
+/* Page wrapper */
+.users-page {
+    @apply p-4 text-gray-100;
+}
+
+/* Header */
+.users-header {
+    @apply flex flex-col mb-6 pl-3;
+}
+
+.users-title {
+    @apply text-2xl font-semibold text-gray-100;
+}
+
+.users-title-underline {
+    @apply border-b-2 border-emerald-500 w-fit pb-1;
+}
+
+/* Empty state */
+.users-empty {
+    @apply text-gray-300 pl-3;
+}
+
+/* Table */
+.users-table {
+    @apply w-full border-collapse mt-4 bg-gray-900 rounded-md overflow-hidden shadow-md shadow-black/40;
+}
+
+.users-table thead {
+    @apply bg-green-900 text-emerald-300;
+}
+
+.users-table th {
+    @apply text-left px-4 py-3 font-medium border-b border-green-800;
+}
+
+.users-table tbody tr {
+    @apply hover:bg-gray-800 transition-colors;
+}
+
+.users-table td {
+    @apply px-4 py-3 border-b border-gray-800 text-gray-200;
+}
+
+/* Loading */
+.users-loading {
+    @apply p-4 text-gray-300;
+}
+
+/* UserDetailPage stylings */
+/* Page wrapper */
+.user-details-page {
+    @apply p-6 text-gray-100;
+}
+
+/* Header */
+.user-details-header {
+    @apply text-2xl font-semibold mb-6 pl-1;
+}
+
+.user-details-underline {
+    @apply border-b-2 border-emerald-500 w-fit pb-1;
+}
+
+/* Form container */
+.user-details-form {
+    @apply bg-gray-900 p-6 rounded-md shadow-md shadow-black/40 max-w-xl;
+}
+
+/* Form group */
+.user-details-group {
+    @apply mb-4;
+}
+
+.user-details-label {
+    @apply block text-gray-300 mb-1;
+}
+
+.user-details-input {
+    @apply w-full bg-gray-800 text-gray-100 px-3 py-2 rounded border border-gray-700
+           focus:border-emerald-500 outline-none;
+}
+
+.user-details-input-readonly {
+    @apply w-full bg-gray-800 text-gray-400 px-3 py-2 rounded border border-gray-700
+           cursor-not-allowed;
+}
+
+/* Buttons */
+.user-details-buttons {
+    @apply flex gap-3 mt-6;
+}
+
+.btn-save {
+    @apply px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded;
+}
+
+.btn-reset {
+    @apply px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded;
+}
+
+.btn-delete {
+    @apply px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded;
+}

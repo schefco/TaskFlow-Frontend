@@ -1,0 +1,88 @@
+/* ProjectDetailsPage.css */
+
+/* Page container */
+.pageContainer {
+    @apply max-w-3xl mx-auto pt-10;
+    color: var(--green-text);
+}
+
+/* Back button */
+.backButton {
+    @apply text-sm underline cursor-pointer mb-4;
+    color: #ffffff;
+    opacity: 0.85;
+}
+.backButton:hover {
+    opacity: 1;
+}
+
+/* Header section */
+.projectHeader {
+    @apply p-6 rounded border mb-8;
+    background: var(--green-card);        /* MATCHES project cards */
+    border-color: var(--green-accent);
+    color: var(--green-text);
+}
+
+.headerTopRow {
+    @apply flex items-center justify-between mb-4;
+}
+
+/* Title + description */
+.projectTitle {
+    @apply text-3xl font-semibold mb-2;
+    color: #f0f7f2;
+}
+
+.projectDescription {
+    @apply text-base mb-4;
+    color: var(--green-text);
+}
+
+/* Meta info */
+.projectMeta {
+    @apply flex gap-6 mb-4 text-sm;
+    color: var(--green-text);
+}
+
+/* Action buttons */
+.projectActions {
+    @apply flex gap-3;
+}
+
+.btnEdit,
+.btnDelete,
+.btnAddTask {
+    @apply px-3 py-1 rounded text-sm transition;
+    background: var(--green-card);
+    border: 1px solid var(--green-accent);
+    color: #f0f7f2;
+}
+
+.btnEdit:hover,
+.btnDelete:hover,
+.btnAddTask:hover {
+    background: var(--green-accent);
+    color: #ffffff;
+}
+
+/* Task section */
+.taskSection {
+    @apply mt-10;
+}
+
+.taskTitle {
+    @apply text-2xl font-semibold mb-4;
+    color: var(--green-accent);
+}
+
+.taskTreeContainer {
+    @apply p-4 rounded border;
+    background: var(--green-card);        /* MATCHES project cards */
+    border-color: var(--green-accent);
+}
+
+.taskPlaceholder {
+    @apply text-sm italic opacity-70;
+    color: var(--green-text);
+}

@@ -1,0 +1,34 @@
+/* Mainlayout style sheet*/
+
+/* Top navbar */
+.main-navbar {
+    @apply w-full h-16 bg-green-900 border-b text-emerald-400 flex items-center justify-between px-8 fixed top-0 left-0 z-20;
+}
+
+.logout-button {
+    @apply px-3 py-1 rounded-md text-emerald-300 hover:bg-green-800 hover:text-white transition-colors duration-200 cursor-pointer;
+}
+
+/* Sidebar */
+.main-sidebar {
+    @apply w-64 bg-green-950 text-white h-screen fixed top-16 left-0 pt-4;
+}
+
+/* Content wrapper */
+.main-content {
+    @apply ml-64 mt-16 p-10 space-y-6 border-green-800 bg-green-950/20 flex-1 min-h-screen;
+}
+
+/* Sidebar links */
+.sidebar-link {
+    @apply block px-4 py-2 text-gray-100 hover:bg-green-900 hover:text-white rounded;
+}
+
+.sidebar-link.active {
+    @apply bg-green-700 text-white;
+}
+
+/* Main body */
+.main-body {
+    display: flex;
+}
