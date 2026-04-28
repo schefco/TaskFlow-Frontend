@@ -1,4 +1,4 @@
-import type { Comment } from "./TaskComment";
+import type { TaskComment } from "./TaskComment";
 
 export interface Task {
     id: string;
@@ -13,7 +13,7 @@ export interface Task {
     updatedAt?: string;
     completedAt?: string;
 
-    comments: Comment[];
+    comments: TaskComment[];
 
     parentTaskId?: string; // if nested under another task
     subTasks: Task[]; // recursive structure for tasks that have subtasks that have subtasks and so on.

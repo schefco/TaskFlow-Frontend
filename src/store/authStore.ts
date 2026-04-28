@@ -7,7 +7,18 @@ import { persist, createJSONStorage } from "zustand/middleware";
 interface AuthState {
     isAuthenticated: boolean;
 
-    login: () => void;
+    userId: string | null;
+    email: string | null;
+    role: string | null;
+    token: string | null;
+
+    login: (data?: {
+        userId?: string;
+        email?: string;
+        role?: string;
+        token?: string;
+    }) => void;
+
     logout: () => void;
 
     // Temp token state for first-time login and password reset
@@ -22,10 +33,21 @@ export const useAuthStore = create<AuthState>()(
         (set) => ({
         // Intitial state
         isAuthenticated: false,
+        userId: null,
+        email: null,
+        role: null,
+        token: null,
+
 
         // Login: mark user as authenticated (cookie handles idenity)
-        login: () => {
-            set({ isAuthenticated: true });
+        login: (data) => {
+            set({ 
+                isAuthenticated: true,
+                userId: data?.userId ?? null,
+                email: data?.email ?? null,
+                role: data?.role ?? null,
+                token: data?.token ?? null,            
+            });
         },
         
         // Temp token state
