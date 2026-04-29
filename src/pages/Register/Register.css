@@ -39,7 +39,7 @@
     @apply w-full px-3 py-2 rounded border resize-none;
     border-color: var(--green-accent);
     background: var(--green-card);
-    color: var(--green-text);
+    color: black;
     min-width: 120px;
     transition: background 0.2s ease, border-color 0.2s ease;
 }

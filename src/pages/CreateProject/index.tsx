@@ -2,7 +2,6 @@ import { useProjectStore } from "../../store/projectStore";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "./CreateProject.css";
-import { useAuthStore } from "../../store/authStore";
 
 export default function CreateProject() {
     // Local form state
@@ -11,8 +10,6 @@ export default function CreateProject() {
     const [priority, setPriority] = useState(2); // Default priority is medium
     const [status, setStatus] = useState(0); // Default status is Not Started
     const [dueDate, setDueDate] = useState(""); // Set by user
-    
-    const createdByUserId = useAuthStore((s) => s.userId);
 
     // Project store actions
     const createProject = useProjectStore((s) => s.createProject);
@@ -26,7 +23,7 @@ export default function CreateProject() {
 
         if (!name.trim()) return;
 
-        createProject({ name, description, priority, status, dueDate, createdByUserId }, navigate);
+        createProject({ name, description, priority, status, dueDate }, navigate);
     };
 
     return (

@@ -9,7 +9,6 @@ export interface CreateProjectDto {
     priority: number;
     status: number;
     dueDate: string;
-    createdByUserId: string | null;
 }
 
 // ProjectStore state shape
