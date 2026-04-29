@@ -1,73 +1,92 @@
-# React + TypeScript + Vite
+# TaskFlow Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+TaskFlow is a modern project and task management application designed for clarity, speed, and simplicity.  
+This repository contains the frontend client built with React, TypeScript, and Vite.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- User authentication and role-based access control (Owner and User)
+- Project creation, editing, and management
+- Task tracking with subtasks and progress indicators
+- User administration (Owner only)
+- Pending user approval workflow (Owner only)
+- First-time password reset flow
+- Responsive, clean UI built with CSS and utility classes
+- API communication via Axios with secure token handling
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 18
+- TypeScript
+- Vite
+- Zustand (state management)
+- React Router
+- Axios
+- React Hot Toast
+- CSS modules and custom styling
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+src/
+api/               API request helpers
+components/        Reusable UI components
+pages/             Application pages
+store/             Zustand stores
+utils/             Utility functions (JWT decoding, helpers)
+App.tsx            Application routes
+main.tsx           Entry point
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Code
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Environment Variables
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Create a `.env` file in the project root:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+VITE_API_URL=https://your-backend-url/api
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Code
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Running the Project
+
+Install dependencies:
+
+npm install
+
+Code
+
+Start the development server:
+
+npm run dev
+
+Code
+
+Build for production:
+
+npm run build
+
+Code
+
+Preview production build:
+
+npm run preview
+
+Code
+
+## Authentication Flow
+
+- Users log in with email and password.
+- If the backend indicates `requiresPasswordReset`, the user is redirected to the first-time password page.
+- JWT tokens are decoded client-side to extract userId, email, and role.
+- Role-based routing ensures Owner-only pages remain restricted.
+
+## Owner-Only Pages
+
+- Pending Users
+- Users List
+- User Detail
+
+These routes are protected both in the UI and via backend authorization.
+
+## License
+
+This project is open source and available for review, learning, and extension.
