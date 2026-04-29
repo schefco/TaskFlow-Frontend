@@ -3,6 +3,7 @@ import { loginUser } from "../../api/authApi";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
+import "./Login.css";
 
 // Login Page
 export default function LoginPage() {
@@ -50,27 +51,40 @@ export default function LoginPage() {
     }
 
     return (
-        <div style={{ maxWidth: 400, margin: "0 auto", paddingTop: "4rem"}}>
-            <h2>Login</h2>
+        <div className="loginWrapper">
+            <div className="loginCard">
+                <h2 className="loginTitle">Login</h2>
 
-            <form onSubmit={handleSubmit}>
-                {/* Email input */}
-                <div style={{ marginBottom: "1rem" }}>
-                    <label>Email</label>
-                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required style={{ width: "100%"}}/>
-                </div>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                    {/* Email input */}
+                    <div>
+                        <label className="loginLabel">Email</label>
+                        <input type="email" 
+                        value={email} 
+                        onChange={(e) => setEmail(e.target.value)} 
+                        required 
+                        className="loginInput"/>
+                    </div>
 
-                {/* Password inpur */}
-                <div style={{ marginBottom: "1rem" }}>
-                    <label>Password</label>
-                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required style={{ width: "100%"}}/>
-                </div>
+                    {/* Password input */}
+                    <div style={{ marginBottom: "1rem" }}>
+                        <label className="loginLabel">Password</label>
+                        <input type="password" 
+                        value={password} 
+                        onChange={(e) => setPassword(e.target.value)} 
+                        required 
+                        className="loginInput"/>
+                    </div>
 
-                {/* Submit button */}
-                <button type="submit" style={{ width: "100%" }} disabled={loading}>{loading ? "Logging in ..." : "Login"}</button>
-            </form>
+                    {/* Submit button */}
+                    <button type="submit" className="loginLink" disabled={loading}>{loading ? "Logging in ..." : "Login"}</button>
+                </form>
 
-            <p>This site is still under construction</p>
+                <p className="loginFooter">
+                    Don't have an account?
+                    <a onClick={() => navigate("/register")} className="loginLink">Sign up</a>    
+                </p>
+            </div>
         </div>
     );
 }

@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./Register.css";
 
 export default function Register() {
     const [name, setName] = useState("");
@@ -6,10 +8,12 @@ export default function Register() {
     const [company, setCompany] = useState("");
     const [reason, setReason] = useState("");
 
+    const navigate = useNavigate();
+
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        await fetch("https://localhost:7154/auth/register", {
+        await fetch("https://schefco.com/auth/register", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -24,24 +28,53 @@ export default function Register() {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input placeholder="Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}/>
+        <div className="registerWrapper">
+            <div className="registerCard">
+                <h2 className="registerTitle">Request Access</h2>
 
-            <input placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}/>
+                    <form onSubmit={handleSubmit} className="space-y-4">
+                        <div>
+                            <label className="registerLabel">Request Access</label>
+                            <input placeholder="Name"
+                            className="registerInput"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            required/>
+                        </div>
 
-            <input placeholder="Company"
-            value={company}
-            onChange={(e) => setCompany(e.target.value)}/>
+                        <div>
+                            <label className="registerLabel">Email</label>
+                            <input placeholder="Email"
+                            className="registerInput"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required/>
+                        </div>
 
-            <textarea placeholder="Reason"
-            value={reason}
-            onChange={(e) => setReason(e.target.value)}/>
+                        <div>
+                            <label className="registerLabel">Company</label>
+                            <input placeholder="Company Name"
+                            className="registerInput"
+                            value={company}
+                            onChange={(e) => setCompany(e.target.value)}/>
+                        </div>
 
-            <button type="submit">Register</button>
-        </form>
+                        <div>
+                            <label className="registerLabel">Reason for registering</label>
+                            <textarea placeholder="Tell us what brought you here..."
+                            value={reason}
+                            onChange={(e) => setReason(e.target.value)}
+                            rows={3}/>
+                        </div>
+
+                        <button type="submit" className="registerButton">Submit Request</button>
+                    </form>
+
+                    <p className="registerFooter">
+                        Already have an account?
+                        <a onClick={() => navigate("/login")} className="registerLink">Login</a>
+                    </p>
+            </div>
+        </div>
     );
 }

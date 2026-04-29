@@ -1,0 +1,72 @@
+/* Register.css */
+
+/* Wrapper */
+.registerWrapper {
+    @apply min-h-screen flex items-center justify-center;
+    background: var(--green-bg);
+}
+
+/* Card */
+.registerCard {
+    @apply w-full max-w-md p-6 rounded-lg border shadow;
+    background: var(--green-card);
+    border-color: var(--green-accent);
+    color: var(--green-text);
+}
+
+/* Title */
+.registerTitle {
+    @apply text-2xl font-semibold text-center mb-6;
+    color: var(--green-text-strong);
+}
+
+/* Label */
+.registerLabel {
+    @apply block text-sm mb-1;
+    color: var(--green-text);
+}
+
+/* Input + Textarea */
+.registerInput,
+.registerTextarea {
+    @apply w-full px-3 py-2 rounded border;
+    border-color: var(--green-accent);
+    background: var(--green-card);
+    color: var(--green-text);
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.registerInput:focus,
+.registerTextarea:focus {
+    outline: none;
+    border-color: var(--green-text-strong);
+}
+
+/* Button */
+.registerButton {
+    @apply w-full py-2 rounded font-medium mt-4;
+    background: var(--green-accent);
+    color: var(--green-text-strong);
+    transition: background 0.2s ease;
+}
+
+.registerButton:hover {
+    background: var(--green-text);
+    color: var(--green-card);
+}
+
+/* Footer */
+.registerFooter {
+    @apply text-center text-sm mt-4;
+    color: var(--green-text);
+}
+
+.registerLink {
+    @apply font-semibold ml-1;
+    color: var(--green-text-strong);
+    transition: color 0.2s ease;
+}
+
+.registerLink:hover {
+    color: var(--green-accent);
+}
