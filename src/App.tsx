@@ -34,6 +34,7 @@ function App() {
           <Route path="/users" element={<OwnerRoute><UsersPage /></OwnerRoute>} />
           <Route path="/users/:id" element={<OwnerRoute><UserDetailPage /></OwnerRoute>} />
           <Route path="/projects/:id" element={<ProjectDetailsPage />} />
+          <Route path="/projects/:id/edit" element={<CreateProject />} />
         </Route>
       </Routes>
 

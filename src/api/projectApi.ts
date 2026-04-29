@@ -15,6 +15,21 @@ export async function createProjectApi(data: CreateProjectDto) {
     return response.data;
 }
 
+export async function updateProjectApi(id: string, data: Partial<Project>) {
+    // send PUT request to backend
+    const response = await api.put(`/projects/${id}`, data);
+
+    // return the updated project
+    return response.data;
+}
+
+export async function deleteProjectApi(id: string){
+    // Send DELETE request to backend
+    await api.delete(`/projects/${id}`, {
+        withCredentials: true
+    });
+}
+
 export async function getProjectById(id: string) {
     // send GET request to find project by id
     const response = await api.get(`/projects/${id}`);

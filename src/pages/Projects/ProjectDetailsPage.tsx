@@ -11,6 +11,8 @@ import type { Task } from "../../types/Task";
 
 export default function ProjectDetailsPage() {
     const navigate = useNavigate();
+    const deleteProject = useProjectStore(s => s.deleteProject);
+
     const { id } = useParams();
     const [isCreateTaskOpen, setIsCreateTaskOpen] = useState(false);
     const [taskToEdit, setTaskToEdit] = useState<Task | null>(null);
@@ -67,8 +69,22 @@ export default function ProjectDetailsPage() {
                     <button className="backButton" onClick={() => navigate(-1)}>← Back</button>
 
                     <div className="projectActions">
-                        <button className="btnEdit">Edit</button>
-                        <button className="btnDelete">Delete</button>
+                        <button className="btnEdit"
+                        onClick={() => navigate(`/projects/${project.id}/edit`)}>
+                            Edit
+                        </button>
+
+                        <button className="btnDelete"
+                        onClick={async () => {
+                            if (!confirm("Are you sure you want to delete this project?")) return;
+
+                            await deleteProject(project.id);
+
+                            navigate("/projects");
+                        }}>
+                            Delete
+                        </button>
+
                         <button className="btnAddTask"
                         onClick={() => {
                             setTaskToEdit(null);
