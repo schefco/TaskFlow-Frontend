@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import "./Login.css";
+import { decodeJwt } from "../../utils/jwt";
 
 // Login Page
 export default function LoginPage() {
@@ -37,8 +38,16 @@ export default function LoginPage() {
                 return;
             }
 
+            // Decode the JWT to get userId, email and role
+            const decoded = decodeJwt(token);
+
             // Store token and decoded user info in Zustand
-            login();
+            login({
+                userId: decoded.userId,
+                email: decoded.email,
+                role: decoded.role,
+                token
+            });
 
             // Redirect to projects page
             navigate("/");

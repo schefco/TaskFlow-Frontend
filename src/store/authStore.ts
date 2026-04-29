@@ -41,13 +41,13 @@ export const useAuthStore = create<AuthState>()(
 
         // Login: mark user as authenticated (cookie handles idenity)
         login: (data) => {
-            set({ 
+            set((state) => ({ 
                 isAuthenticated: true,
-                userId: data?.userId ?? null,
-                email: data?.email ?? null,
-                role: data?.role ?? null,
-                token: data?.token ?? null,            
-            });
+                userId: data?.userId ?? state.userId,
+                email: data?.email ?? state.email,
+                role: data?.role ?? state.role,
+                token: data?.token ?? state.token,            
+            }));
         },
         
         // Temp token state

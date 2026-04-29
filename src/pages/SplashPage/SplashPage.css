@@ -18,7 +18,7 @@
 
 /* HERO */
 .hero {
-  background: var(--green);
+  background: var(--green-dark);
   color: white;
   text-align: center;
   padding: 80px 20px;

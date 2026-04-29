@@ -63,11 +63,11 @@ export default function SplashPage() {
                     <a onClick={() => navigate("https://github.com/schefco/TaskFlow-Frontend")}
                     target="_blank"
                     className="btn-dark">Frontend Repository</a>
+                    
+                    <a onClick={() => navigate("https://github.com/schefco/TaskFlow-Backend")}
+                    target="_blank"
+                    className="btn-dark">Backend Repository</a>
                 </div>
-
-                <a onClick={() => navigate("https://github.com/schefco/TaskFlow-Backend")}
-                target="_blank"
-                className="btn-dark">Backend Repository</a>
             </section>
 
             {/**Footer */}
