@@ -13,7 +13,7 @@ export default function Register() {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        await fetch("https://schefco.com/auth/register", {
+        await fetch("https://taskflow-backend-96ki.onrender.com/auth/register", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -61,7 +61,8 @@ export default function Register() {
 
                         <div>
                             <label className="registerLabel">Reason for registering</label>
-                            <textarea placeholder="Tell us what brought you here..."
+                            <textarea className="regiterTextarea" 
+                            placeholder="Tell us what brought you here..."
                             value={reason}
                             onChange={(e) => setReason(e.target.value)}/>
                         </div>
