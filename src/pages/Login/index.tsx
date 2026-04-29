@@ -53,7 +53,7 @@ export default function LoginPage() {
     return (
         <div className="loginWrapper">
             <div className="loginCard">
-                <h2 className="loginTitle">Login</h2>
+                <h2 className="loginTitle">Welcome to TaskFlow</h2>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
                     {/* Email input */}
@@ -88,6 +88,7 @@ export default function LoginPage() {
                     Don't have an account?
                     <a onClick={() => navigate("/register")} className="loginLink">Sign up</a>    
                 </p>
+                <p className="loginFooter">Created by Schefco 2026</p>
             </div>
         </div>
     );
