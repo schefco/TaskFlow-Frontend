@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import api from "../../api/axios";
 import { useAuthStore } from "../../store/authStore";
 import { toast } from "react-hot-toast";
+import "./Login.css";
 
 export default function FirstTimePasswordPage() {
     // Page states
@@ -67,35 +68,37 @@ export default function FirstTimePasswordPage() {
             toast.success("Password updated successfully"); // Great sucess!
             navigate("/");
         } catch {
-            toast.error("Somethign went wrong. Try again."); // For any error outside of validity checks
+            toast.error("Something went wrong. Try again."); // For any error outside of validity checks
         } finally {
             setLoading(false); // set loading to false to reset page state
         }
     };
 
     return (
-        <div style={{ maxWidth: 400, margin: "40px auto" }}>
-            <h2>Set Your New Password</h2>
+        <div className="ftp-container">
+            <h2 className="ftp-title">Set Your New Password</h2>
 
-            <form onSubmit={handleSubmit}>
+            <form className="ftp-form" onSubmit={handleSubmit}>
                 <input
-                type ="password"
+                type="password"
                 placeholder="New password"
+                className="ftp-input"
                 value={newPassword}
                 onChange={(e) => setNewPassword(e.target.value)}/>
 
                 <input
                 type="password"
                 placeholder="Confirm password"
+                className="ftp-input"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}/>
 
-                <button type="submit" disabled={loading}>
+                <button className="ftp-button" type="submit" disabled={loading}>
                     {loading ? "Updating ..." : "Update Password"}
                 </button>
             </form>
 
-            {error && <p style={{ color: "red"}}>{error}</p>}
+            {error && <p className="ftp-error">{error}</p>}
         </div>
     );
 }

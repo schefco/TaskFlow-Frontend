@@ -12,6 +12,8 @@ import FirstTimePasswordPage from "./pages/Login/first-time-password";
 import UsersPage from "./pages/UsersPage";
 import UserDetailPage from "./pages/UsersPage/UserDetailPage";
 import ProjectDetailsPage from "./pages/Projects/ProjectDetailsPage";
+import SplashPage from "./pages/SplashPage/SplashPage";
+import OwnerRoute from "./components/OwnerRoute/OwnerRoute";
 
 function App() {
   return (
@@ -24,12 +26,13 @@ function App() {
 
         {/** Protected */}
         <Route element={<ProtectedRoute><MainLayout /></ProtectedRoute>}>
-          <Route index element={<Navigate to="/projects" replace />} />
+          <Route index element={<Navigate to="/welcome" replace />} />
+          <Route path="/welcome" element={<SplashPage />} />
           <Route path="/projects" element={<Projects />} />
-          <Route path="/pending-users" element={<PendingUsersPage />} />
+          <Route path="/pending-users" element={<OwnerRoute><PendingUsersPage /></OwnerRoute>} />
           <Route path="/projects/create" element={<CreateProject />} />
-          <Route path="/users" element={<UsersPage />} />
-          <Route path="/users/:id" element={<UserDetailPage />} />
+          <Route path="/users" element={<OwnerRoute><UsersPage /></OwnerRoute>} />
+          <Route path="/users/:id" element={<OwnerRoute><UserDetailPage /></OwnerRoute>} />
           <Route path="/projects/:id" element={<ProjectDetailsPage />} />
         </Route>
       </Routes>

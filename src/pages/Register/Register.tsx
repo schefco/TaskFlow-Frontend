@@ -25,6 +25,7 @@ export default function Register() {
         });
 
         alert("Registration submitted");
+        navigate("/login");
     };
 
     return (

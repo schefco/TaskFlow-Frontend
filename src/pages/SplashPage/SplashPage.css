@@ -1,0 +1,189 @@
+/* SplashPage.css */
+
+/* Root Theme */
+:root {
+  --green: #16a34a;
+  --green-dark: #0f7a37;
+  --gray-light: #f5f5f5;
+  --gray: #555;
+  --dark: #111;
+  --radius: 12px;
+}
+
+/* Layout */
+.splash-container {
+  font-family: system-ui, sans-serif;
+  color: var(--dark);
+}
+
+/* HERO */
+.hero {
+  background: var(--green);
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.hero-title {
+  font-size: 64px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.hero-subtitle {
+  font-size: 20px;
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+.hero-buttons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-dark {
+  padding: 12px 28px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+/* Buttons */
+.btn-primary {
+  background: white;
+  color: var(--green);
+}
+
+.btn-primary:hover {
+  background: #e8e8e8;
+}
+
+.btn-secondary {
+  border: 2px solid white;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: white;
+  color: var(--green);
+}
+
+.btn-dark {
+  background: var(--dark);
+  color: white;
+}
+
+.btn-dark:hover {
+  background: #333;
+}
+
+/* FEATURES */
+.features {
+  background: var(--gray-light);
+  padding: 80px 20px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.feature-grid {
+  display: grid;
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .feature-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.feature-card {
+  background: white;
+  padding: 30px;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.feature-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.feature-desc {
+  color: var(--gray);
+}
+
+/* WHY SECTION */
+.why {
+  padding: 80px 20px;
+}
+
+.why-grid {
+  display: grid;
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .why-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.value-card {
+  background: white;
+  padding: 30px;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.value-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.value-text {
+  color: var(--gray);
+}
+
+/* DOWNLOAD */
+.download {
+  background: var(--gray-light);
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.download-text {
+  color: var(--gray);
+  margin-bottom: 30px;
+}
+
+.download-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 20px;
+  color: var(--gray);
+  font-size: 14px;
+  border-top: 1px solid #ddd;
+}
