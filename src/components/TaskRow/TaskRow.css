@@ -107,3 +107,54 @@
 .chevron.open {
     transform: rotate(90deg);
 }
+
+/* Comments Section */
+.commentsSection {
+    @apply ml-6 mt-3 p-3 rounded border;
+    border-color: var(--green-accent);
+    background: var(--green-card);
+    color: var(--green-text);
+}
+
+/* Add Comment Row */
+.addCommentRow {
+    @apply flex items-center gap-2 mb-3;
+}
+
+.commentInput {
+    @apply flex-1 px-2 py-1 rounded border text-sm;
+    border-color: var(--green-accent);
+    background: var(--green-card);
+    color: var(--green-text);
+}
+
+.commentAddButton {
+    @apply px-3 py-1 rounded border text-xs;
+    border-color: var(--green-accent);
+    background: var(--green-card);
+    color: var(--green-text);
+    transition: background 0.2s ease;
+}
+
+.commentAddButton:hover {
+    background: var(--green-accent);
+}
+
+/* Comment List */
+.commentList {
+    @apply flex flex-col gap-2;
+}
+
+.commentItem {
+    @apply p-2 rounded border;
+    border-color: var(--green-accent);
+    background: var(--green-card);
+}
+
+.commentContent {
+    @apply text-sm;
+}
+
+.commentMeta {
+    @apply text-xs opacity-70 mt-1;
+}

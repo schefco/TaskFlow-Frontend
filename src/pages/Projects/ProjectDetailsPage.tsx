@@ -36,7 +36,7 @@ export default function ProjectDetailsPage() {
         if (id) {
             loadTasks(id);
         }
-    }, []);
+    }, [id, loadTasks]);
 
     // Loading state
     if (isLoading || !project) {

@@ -40,8 +40,9 @@
     border-color: var(--green-accent);
     background: var(--green-card);
     color: black;
-    min-width: 120px;
-    transition: background 0.2s ease, border-color 0.2s ease;
+    min-width: 100%;
+    min-height: 140px;
+    width: 100%;
 }
 
 .registerInput:focus,

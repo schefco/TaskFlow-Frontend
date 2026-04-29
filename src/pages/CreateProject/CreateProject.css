@@ -34,7 +34,7 @@
 /* Labels */
 .formGroup label {
     @apply mb-1;
-    color: var(--green-text);
+    color: black;
 }
 
 /* Inputs */
