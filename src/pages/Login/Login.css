@@ -42,8 +42,12 @@
 }
 
 /* Button */
+.loginButtonWrapper {
+    @apply flex justify-center mt-4;
+}
+
 .loginButton {
-    @apply w-full py-2 rounded font-medium mt-4;
+    @apply px-6 py-2 rounded font-medium;
     background: var(--green-accent);
     color: var(--green-text-strong);
     transition: background 0.2s ease;

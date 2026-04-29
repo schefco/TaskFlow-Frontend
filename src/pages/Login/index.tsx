@@ -77,7 +77,11 @@ export default function LoginPage() {
                     </div>
 
                     {/* Submit button */}
-                    <button type="submit" className="loginLink" disabled={loading}>{loading ? "Logging in ..." : "Login"}</button>
+                    <div className="loginButtonWrapper">
+                        <button type="submit" className="loginLink" disabled={loading}>
+                            {loading ? "Logging in ..." : "Login"}
+                        </button>
+                    </div>
                 </form>
 
                 <p className="loginFooter">

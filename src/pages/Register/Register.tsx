@@ -63,11 +63,12 @@ export default function Register() {
                             <label className="registerLabel">Reason for registering</label>
                             <textarea placeholder="Tell us what brought you here..."
                             value={reason}
-                            onChange={(e) => setReason(e.target.value)}
-                            rows={3}/>
+                            onChange={(e) => setReason(e.target.value)}/>
                         </div>
 
-                        <button type="submit" className="registerButton">Submit Request</button>
+                        <div className="registerButtonWrapper">
+                            <button type="submit" className="registerButton">Submit Request</button>
+                        </div>
                     </form>
 
                     <p className="registerFooter">
