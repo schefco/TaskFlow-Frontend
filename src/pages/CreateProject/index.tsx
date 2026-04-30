@@ -65,6 +65,16 @@ export default function CreateProject() {
         <div className="createPage">
             {/**Card container */}
             <div className="createCard">
+                <button className="backButton"
+                onClick={() => {
+                    if (isUpdate) {
+                        navigate(`/projects/${id}`);
+                    } else {
+                        navigate("/projects");
+                    }
+                }}>
+                    ← Back
+                </button>
                 <h1 className="createTitle">{isUpdate ? "Edit Project" : "Create New Project"}</h1>
 
                 <form onSubmit={handleSubmit}>

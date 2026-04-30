@@ -1,12 +1,9 @@
-import { useNavigate } from "react-router-dom";
 import "./SplashPage.css";
 
 export default function SplashPage() {
     // Landing page for after the user can login
     // Welcome/Home page
     // Explains TaskFlow and tech stack
-
-    const navigate = useNavigate();
 
     return (
         <div className="splash-container">
@@ -60,12 +57,14 @@ export default function SplashPage() {
                 <p className="download-text">Explore the full TaskFlow codebase on GitHub.</p>
 
                 <div className="download-buttons">
-                    <a onClick={() => navigate("https://github.com/schefco/TaskFlow-Frontend")}
+                    <a href="https://github.com/schefco/TaskFlow-Frontend"
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="btn-dark">Frontend Repository</a>
                     
-                    <a onClick={() => navigate("https://github.com/schefco/TaskFlow-Backend")}
+                    <a href="https://github.com/schefco/TaskFlow-Backend"
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="btn-dark">Backend Repository</a>
                 </div>
             </section>

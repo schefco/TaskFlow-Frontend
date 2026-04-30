@@ -26,6 +26,21 @@
     color: var(--green-accent);
 }
 
+/* Back Button */
+.backButton {
+    background: none;
+    border: none;
+    color: var(--green-text);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.backButton:hover {
+    color: var(--green-accent);
+}
+
 /* Form group */
 .formGroup {
     @apply flex flex-col mb-4;
@@ -40,12 +55,14 @@
 /* Select Boxes */
 .formGroup select {
     background: var(--green-card);
+    border-color: var(--green-accent);
     color: var(--green-text);
 }
 
 /* DateTime box */
 .formGroup input {
     background: var(--green-card);
+    border-color: var(--green-accent);
     color: var(--green-text);
 }
 
