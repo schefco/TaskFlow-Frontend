@@ -37,6 +37,18 @@
     color: var(--green-text);
 }
 
+/* Select Boxes */
+.formGroup select {
+    background: var(--green-card);
+    color: var(--green-text);
+}
+
+/* DateTime box */
+.formGroup input {
+    background: var(--green-card);
+    color: var(--green-text);
+}
+
 /* Inputs */
 .input {
     @apply p-2 rounded border focus:outline-none focus:ring-2;
