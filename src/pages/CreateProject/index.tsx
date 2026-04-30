@@ -66,13 +66,7 @@ export default function CreateProject() {
             {/**Card container */}
             <div className="createCard">
                 <button className="backButton"
-                onClick={() => {
-                    if (isUpdate) {
-                        navigate(`/projects/${id}`);
-                    } else {
-                        navigate("/projects");
-                    }
-                }}>
+                onClick={() => {navigate(-1);}}>
                     ← Back
                 </button>
                 <h1 className="createTitle">{isUpdate ? "Edit Project" : "Create New Project"}</h1>

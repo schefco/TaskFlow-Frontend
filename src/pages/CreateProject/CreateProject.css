@@ -54,16 +54,20 @@
 
 /* Select Boxes */
 .formGroup select {
+    @apply p-2 rounded border focus:outline-none focus:ring-2;
     background: var(--green-card);
     border-color: var(--green-accent);
     color: var(--green-text);
+    --tw-ring-color: var(--green-accent);
 }
 
 /* DateTime box */
 .formGroup input {
+    @apply p-2 rounded border focus:outline-none focus:ring-2;
     background: var(--green-card);
     border-color: var(--green-accent);
     color: var(--green-text);
+    --tw-ring-color: var(--green-accent);
 }
 
 /* Inputs */
