@@ -34,24 +34,24 @@
 /* Labels */
 .formGroup label {
     @apply mb-1;
-    color: black;
+    color: var(--green-text);
 }
 
 /* Inputs */
 .input {
     @apply p-2 rounded border focus:outline-none focus:ring-2;
-    background: white;
+    background: var(--green-card);
     border-color: var(--green-accent);
-    color: black;
+    color: var(--green-text);
     --tw-ring-color: var(--green-accent);
 }
 
 /* Textarea */
 .textarea {
     @apply p-2 rounded border resize-none h-32 focus:outline-none focus:ring-2;
-    background: white;
+    background: var(--green-card);
     border-color: var(--green-accent);
-    color: black;
+    color: var(--green-text);
     --tw-ring-color: var(--green-accent);
 }
 
