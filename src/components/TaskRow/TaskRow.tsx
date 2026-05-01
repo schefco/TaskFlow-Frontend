@@ -3,6 +3,7 @@ import type { Task } from "../../types/Task";
 import "./TaskRow.css";
 import { getTaskProrityLabel, getTaskStatusLabel } from "../../utils/taskEnums";
 import { useTaskStore } from "../../store/taskStore";
+import { useAuthStore } from "../../store/authStore";
 
 interface TaskRowProps {
     task: Task;
@@ -12,7 +13,7 @@ interface TaskRowProps {
 }
 
 export default function TaskRow({ task: initialTask, level = 0, onEdit, createSubtask }: TaskRowProps) {
-    //Sbuscribe to the store to get the Latest version of this task
+    //Subscribe to the store to get the Latest version of this task
     const task = useTaskStore(s => findTaskInTree(s.tasks, initialTask.id));
     const { commentsByTask, loadComments, addComment } = useTaskStore();
 
@@ -23,6 +24,9 @@ export default function TaskRow({ task: initialTask, level = 0, onEdit, createSu
     const [isExpanded, setIsExpanded] = useState(false);
     const [isSubtasksOpen, setIsSubtasksOpen] = useState(false); // flag for Subtask expansion
     const [newComment, setNewComment] = useState("");
+
+    // for displaying user name to comments
+    const currentUser = useAuthStore(state => state.userId);
 
     useEffect(() => {
         if (isExpanded && task) {
@@ -119,6 +123,9 @@ export default function TaskRow({ task: initialTask, level = 0, onEdit, createSu
                             {comments?.map((c) => (
                                 <div key={c.id} className="commentItem">
                                     <div className="commentContent">{c.content}</div>
+                                    <div className="commentAuthor">
+                                        <span>{currentUser == c.userId ? "You" : c.userName}</span>
+                                    </div>
                                     <div className="commentMeta">
                                         {new Date(c.createdAt).toLocaleString()}
                                     </div>

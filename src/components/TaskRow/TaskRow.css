@@ -158,3 +158,8 @@
 .commentMeta {
     @apply text-xs opacity-70 mt-1;
 }
+
+.commentAuthor {
+    font-weight: 600;
+    color: var(--green-accent);
+}
