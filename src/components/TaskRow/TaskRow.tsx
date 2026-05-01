@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import type { Task } from "../../types/Task";
 import "./TaskRow.css";
+import "../../utils/tooltip.css";
 import { getTaskProrityLabel, getTaskStatusLabel } from "../../utils/taskEnums";
 import { useTaskStore } from "../../store/taskStore";
 import { useAuthStore } from "../../store/authStore";
@@ -53,14 +54,17 @@ export default function TaskRow({ task: initialTask, level = 0, onEdit, createSu
                 <div className="taskRowTop">
                     {/**Left side - toggle description */}
                     <div className="taskLeft" onClick={() => setIsExpanded(!isExpanded)}>
-                        <button className="expandButton" onClick={(e) => {
-                            e.stopPropagation(); // prevent description toggle
-                            setIsSubtasksOpen(!isSubtasksOpen);
-                        }}>
-                            <span className={`chevron ${isSubtasksOpen ? "open" : ""}`}>
-                                ▸
-                            </span>
-                        </button>
+                        <div className="tooltip">
+                            <button className="expandButton" onClick={(e) => {
+                                e.stopPropagation(); // prevent description toggle
+                                setIsSubtasksOpen(!isSubtasksOpen);
+                            }}>
+                                <span className={`chevron ${isSubtasksOpen ? "open" : ""}`}>
+                                    ▸
+                                    </span>
+                                    </button>
+                                    <span className="tooltiptext">{isSubtasksOpen ? "Hide tasks" : "Show tasks"}</span>
+                                    </div>
 
                         <span className="taskTitle">{task.title}</span>
                     </div>
@@ -71,31 +75,45 @@ export default function TaskRow({ task: initialTask, level = 0, onEdit, createSu
                         <span className="taskPriority">{getTaskProrityLabel(task.priority)}</span>
 
                         {/**Create subtask button */}
-                        <button className="addTaskButton"
-                         onClick={(e) => {
-                            e.stopPropagation();
-                            createSubtask(task.id);
-                        }}>
-                            + Subtask
-                        </button>
+                        <div className="tooltip">
+                          <button className="addTaskButton"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                createSubtask(task.id);
+                                }}>
+                                    + Subtask
+                            </button>
+                            <span className="tooltiptext">Create a subtask</span>
+                        </div>
+                        
 
                         {/**Edit button */}
-                        <button className="editButton"
-                        onClick={(e) => {
-                            e.stopPropagation(); // prevent description toggle
-                            onEdit(task);
-                        }}>
-                            ✎
-                        </button>
+                        <div className="tooltip">
+                            <button className="editButton"
+                            onClick={(e) => {
+                                e.stopPropagation(); // prevent description toggle
+                                onEdit(task);
+                                }}
+                                >
+                                    ✎
+                            </button>
+                            <span className="tooltiptext">Edit task</span>
+                        </div>
+
+                        
 
                         {/**Delete button */}
-                        <button className="deleteButton"
-                        onClick={(e) => {
-                            e.stopPropagation();
-                            deleteTask(task.id);
-                            }}>
-                                🗑
-                        </button>
+                        <div className="tooltip">
+                            <button className="deleteButton"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                deleteTask(task.id);
+                                }}>
+                                    🗑
+                            </button>
+                            <span className="tooltiptext">Delete task</span>
+                        </div>
+                                    
                     </div>
                 </div>
 
