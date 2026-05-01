@@ -1,0 +1,98 @@
+/* ---------------------------------------------------------
+   iOS Safari Compatibility Layer for TaskFlow
+   Loaded only on iOS devices via index.html
+   --------------------------------------------------------- */
+
+@supports (-webkit-touch-callout: none) {
+
+    /* Form Controls (inputs, selects, textareas)*/
+
+    select,
+    input[type="date"],
+    input[type="time"],
+    input[type="datetime-local"],
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    textarea {
+        -webkit-appearance: none;
+        appearance: none;
+        background-color: #fff;
+        border-radius: 6px;
+        font-size: 16px; /* prevents iOS zoom-on-focus */
+    }
+
+    /* Fix Safari dark-mode forcing inverted colors */
+    input, select, textarea {
+        color-scheme: light;
+    }
+
+
+    /* Scroll + Overflow Fixes*/
+
+    html, body {
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: none;
+    }
+
+    /* Fix scrolling inside modals, drawers, sidebars */
+    .scroll-container,
+    .modal-content,
+    .drawer-content {
+        -webkit-overflow-scrolling: touch;
+        overflow-y: auto;
+    }
+
+
+    /* Buttons + Touch Activation*/
+
+    button,
+    .clickable {
+        cursor: pointer;
+        -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+    }
+
+    /* Prevent double-tap zoom on buttons */
+    button {
+        touch-action: manipulation;
+    }
+
+
+    /* Fixed Header / Toolbar Stability */
+
+    .fixed,
+    .sticky {
+        position: -webkit-sticky;
+        position: sticky;
+    }
+
+
+    /* Chevron / Icon Rotation Stability */
+
+    .chevron {
+        display: inline-block; /* required for rotation */
+        transition: transform 0.2s ease;
+    }
+
+    .chevron.open {
+        transform: rotate(90deg);
+    }
+
+
+    /* Modal Backdrop Fix (iOS ignores backdrop-filter) */
+
+    .modal-backdrop {
+        background: rgba(0,0,0,0.35);
+        -webkit-backdrop-filter: blur(4px);
+        backdrop-filter: blur(4px);
+    }
+
+
+    /* Prevent iOS Safari input zoom on focus */
+
+    input,
+    select,
+    textarea {
+        font-size: 16px !important;
+    }
+}

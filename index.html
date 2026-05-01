@@ -9,5 +9,14 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script> 
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    if (isIOS) {
+        const link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.href = "/utils/ios.css";
+        document.head.appendChild(link);
+      }
+    </script>
   </body>
 </html>
