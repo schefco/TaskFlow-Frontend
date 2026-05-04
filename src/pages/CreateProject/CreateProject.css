@@ -1,36 +1,45 @@
 /* CreateProject.css */
 
+/* neutral palette */
 :root {
-    --green-bg: #0f2f1f;
-    --green-card: #1a3d2a;
-    --green-accent: #2e6b47;
-    --green-text: #d8f3dc;
+    --surface: #ffffff;          /* white card background */
+    --surface-alt: #f3f4f6;      /* light neutral page background */
+    --border-neutral: #e5e7eb;   /* subtle border */
+    --text-dark: #1f2937;        /* dark readable text */
+    --text-muted: #6b7280;       /* muted gray */
+    --accent: #16a34a;           /* emerald accent */
+    --accent-dark: #0f7a37;      /* darker emerald */
 }
 
-/* Page wrapper (reuses your theme) */
+/* Page wrapper */
 .createPage {
     @apply max-w-xl mx-auto pt-10;
-    color: var(--green-text);
+    color: var(--text-dark);
+    background: var(--surface-alt);
 }
 
 /* Card container */
 .createCard {
-    @apply p-8 rounded border shadow-lg w-full;
-    background: var(--green-card);
-    border-color: var(--green-accent);
+    @apply p-8 rounded border shadow-sm w-full;
+    background: var(--surface);
+    border-color: var(--border-neutral);
+    color: var(--text-dark);
 }
 
 /* Title */
 .createTitle {
     @apply text-2xl font-semibold mb-6;
-    color: var(--green-accent);
+    color: var(--text-dark);
+    border-bottom: 3px solid var(--accent);
+    width: fit-content;
+    padding-bottom: 4px;
 }
 
 /* Back Button */
 .backButton {
     background: none;
     border: none;
-    color: var(--green-text);
+    color: var(--text-muted);
     font-size: 1.2rem;
     margin-bottom: 1rem;
     cursor: pointer;
@@ -38,7 +47,7 @@
 }
 
 .backButton:hover {
-    color: var(--green-accent);
+    color: var(--accent);
 }
 
 /* Form group */
@@ -49,57 +58,57 @@
 /* Labels */
 .formGroup label {
     @apply mb-1;
-    color: var(--green-text);
+    color: var(--text-dark);
 }
 
 /* Select Boxes */
 .formGroup select {
     @apply p-2 rounded border focus:outline-none focus:ring-2;
-    background: var(--green-card);
-    border-color: var(--green-accent);
-    color: var(--green-text);
-    --tw-ring-color: var(--green-accent);
+    background: #f9fafb;
+    border-color: var(--border-neutral);
+    color: var(--text-dark);
+    --tw-ring-color: var(--accent);
 }
 
 /* DateTime box */
 .formGroup input {
     @apply p-2 rounded border focus:outline-none focus:ring-2;
-    background: var(--green-card);
-    border-color: var(--green-accent);
-    color: var(--green-text);
-    --tw-ring-color: var(--green-accent);
+    background: #f9fafb;
+    border-color: var(--border-neutral);
+    color: var(--text-dark);
+    --tw-ring-color: var(--accent);
 }
 
 /* Inputs */
 .input {
     @apply p-2 rounded border focus:outline-none focus:ring-2;
-    background: var(--green-card);
-    border-color: var(--green-accent);
-    color: var(--green-text);
-    --tw-ring-color: var(--green-accent);
+    background: #f9fafb;
+    border-color: var(--border-neutral);
+    color: var(--text-dark);
+    --tw-ring-color: var(--accent);
 }
 
 /* Textarea */
 .textarea {
     @apply p-2 rounded border resize-none h-32 focus:outline-none focus:ring-2;
-    background: var(--green-card);
-    border-color: var(--green-accent);
-    color: var(--green-text);
-    --tw-ring-color: var(--green-accent);
+    background: #f9fafb;
+    border-color: var(--border-neutral);
+    color: var(--text-dark);
+    --tw-ring-color: var(--accent);
 }
 
 /* Submit button */
 .submitBtn {
     @apply w-full py-2 rounded text-white transition;
-    background: var(--green-accent);
+    background: var(--accent);
 }
 
 .submitBtn:hover {
     @apply scale-[1.02];
-    background: #3b8a5a;
+    background: var(--accent-dark);
 }
 
 .submitBtn:disabled {
-    background: #1f4d33;
+    background: #9ccfa9;
     cursor: not-allowed;
 }

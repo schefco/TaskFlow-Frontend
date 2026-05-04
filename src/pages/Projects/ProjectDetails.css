@@ -3,13 +3,14 @@
 /* Page container */
 .pageContainer {
     @apply max-w-3xl mx-auto pt-10;
-    color: var(--green-text);
+    color: #1f2937; /* dark neutral text */
+    background: #f3f4f6; /* light neutral page background */
 }
 
 /* Back button */
 .backButton {
     @apply text-sm underline cursor-pointer mb-4;
-    color: #ffffff;
+    color: #374151; /* neutral gray */
     opacity: 0.85;
 }
 .backButton:hover {
@@ -18,10 +19,10 @@
 
 /* Header section */
 .projectHeader {
-    @apply p-6 rounded border mb-8;
-    background: var(--green-card);        /* MATCHES project cards */
-    border-color: var(--green-accent);
-    color: var(--green-text);
+    @apply p-6 rounded border mb-8 shadow-sm;
+    background: #ffffff; /* clean white card */
+    border-color: #e5e7eb; /* subtle neutral border */
+    color: #1f2937;
 }
 
 .headerTopRow {
@@ -31,18 +32,18 @@
 /* Title + description */
 .projectTitle {
     @apply text-3xl font-semibold mb-2;
-    color: #f0f7f2;
+    color: #1f2937;
 }
 
 .projectDescription {
     @apply text-base mb-4;
-    color: var(--green-text);
+    color: #4b5563; /* muted gray */
 }
 
 /* Meta info */
 .projectMeta {
     @apply flex gap-6 mb-4 text-sm;
-    color: var(--green-text);
+    color: #6b7280; /* muted gray */
 }
 
 /* Action buttons */
@@ -53,17 +54,18 @@
 .btnEdit,
 .btnDelete,
 .btnAddTask {
-    @apply px-3 py-1 rounded text-sm transition;
-    background: var(--green-card);
-    border: 1px solid var(--green-accent);
-    color: #f0f7f2;
+    @apply px-3 py-1 rounded text-sm transition border;
+    background: #ffffff;
+    border-color: #d1d5db; /* neutral border */
+    color: #1f2937;
 }
 
 .btnEdit:hover,
 .btnDelete:hover,
 .btnAddTask:hover {
-    background: var(--green-accent);
-    color: #ffffff;
+    background: #16a34a; /* emerald accent */
+    color: white;
+    border-color: #16a34a;
 }
 
 /* Task section */
@@ -73,16 +75,16 @@
 
 .taskTitle {
     @apply text-2xl font-semibold mb-4;
-    color: var(--green-accent);
+    color: #16a34a; /* emerald accent */
 }
 
 .taskTreeContainer {
-    @apply p-4 rounded border;
-    background: var(--green-card);        /* MATCHES project cards */
-    border-color: var(--green-accent);
+    @apply p-4 rounded border shadow-sm;
+    background: #ffffff; /* white card */
+    border-color: #e5e7eb;
 }
 
 .taskPlaceholder {
     @apply text-sm italic opacity-70;
-    color: var(--green-text);
+    color: #6b7280; /* muted gray */
 }

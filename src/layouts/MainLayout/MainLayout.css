@@ -1,12 +1,16 @@
-/* Mainlayout style sheet*/
+/* Mainlayout style sheet */
 
 /* Top navbar */
 .main-navbar {
-    @apply w-full h-16 bg-green-900 border-b text-emerald-400 flex items-center justify-between px-8 fixed top-0 left-0 z-20;
+    @apply w-full h-16 bg-green-900 border-b text-emerald-300 
+           flex items-center justify-between px-8 fixed top-0 left-0 z-20;
 }
 
+/* Logout button */
 .logout-button {
-    @apply px-3 py-1 rounded-md text-emerald-300 hover:bg-green-800 hover:text-white transition-colors duration-200 cursor-pointer;
+    @apply px-3 py-1 rounded-md text-emerald-200 
+           hover:bg-green-800 hover:text-white 
+           transition-colors duration-200 cursor-pointer;
 }
 
 /* Sidebar */
@@ -16,12 +20,15 @@
 
 /* Content wrapper */
 .main-content {
-    @apply ml-64 mt-16 p-10 space-y-6 border-green-800 bg-green-950/20 flex-1 min-h-screen;
+    @apply ml-64 mt-16 p-10 space-y-6 flex-1 min-h-screen;
+    background: #f3f4f6;       /* light neutral background */
+    color: #1f2937;            /* dark readable text */
 }
 
 /* Sidebar links */
 .sidebar-link {
-    @apply block px-4 py-2 text-gray-100 hover:bg-green-900 hover:text-white rounded;
+    @apply block px-4 py-2 text-gray-100 
+           hover:bg-green-900 hover:text-white rounded;
 }
 
 .sidebar-link.active {

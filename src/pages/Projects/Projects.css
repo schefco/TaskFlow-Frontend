@@ -1,22 +1,30 @@
 /* Projects.css */
 
+/* neutral palette */
 :root {
-    --green-bg: #0f2f1f;      /* deep forest green */
-    --green-card: #1a3d2a;    /* slightly lighter deep forest green */
-    --green-accent: #2e6b47;  /* medium green */
-    --green-text: #d8f3dc;    /* soft mint text */
+    --surface: #ffffff;          /* white card background */
+    --surface-alt: #f3f4f6;      /* light neutral page background */
+    --border-neutral: #e5e7eb;   /* subtle border */
+    --text-dark: #1f2937;        /* dark readable text */
+    --text-muted: #6b7280;       /* muted gray */
+    --accent: #16a34a;           /* emerald accent */
+    --accent-dark: #0f7a37;      /* darker emerald */
 }
 
 /* Page container */
 .pageContainer {
     @apply max-w-3xl mx-auto pt-10;
-    color: var(--green-text);
+    color: var(--text-dark);
+    background: var(--surface-alt);
 }
 
 /* Title */
 .pageTitle {
     @apply text-3xl font-semibold mb-6;
-    color: var(--green-accent);
+    color: var(--text-dark);
+    border-bottom: 3px solid var(--accent);
+    width: fit-content;
+    padding-bottom: 4px;
 }
 
 /* Project list */
@@ -26,14 +34,14 @@
 
 /* Project card */
 .projectItem {
-    @apply p-4 rounded border transition-all duration-200 cursor-pointer;
-    background: var(--green-card);
-    border-color: var(--green-accent);
-    color: var(--green-text);
+    @apply p-4 rounded border transition-all duration-200 cursor-pointer shadow-sm;
+    background: var(--surface);
+    border-color: var(--border-neutral);
+    color: var(--text-dark);
 }
 
 .projectItem:hover {
     @apply scale-[1.02] shadow-lg;
-    border-color: var(--green-accent);
-    box-shadow: 0 0 10px var(--green-accent);
+    border-color: var(--accent);
+    box-shadow: 0 0 10px var(--accent);
 }

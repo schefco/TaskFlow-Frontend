@@ -2,39 +2,48 @@
 
 /* Root Theme */
 :root {
-  --green: #16a34a;
-  --green-dark: #0f7a37;
-  --gray-light: #f5f5f5;
+  --green: #16a34a;          /* accent green */
+  --green-dark: #0f7a37;     /* accent dark green */
+  --gray-light: #fafafa;     /* lighter neutral background */
   --gray: #555;
   --dark: #111;
   --radius: 12px;
+
+  /* neutrals */
+  --surface: #ffffff;
+  --surface-alt: #f3f4f6;
+  --text-dark: #1f2937;
+  --text-muted: #6b7280;
 }
 
 /* Layout */
 .splash-container {
   font-family: system-ui, sans-serif;
-  color: var(--dark);
+  color: var(--text-dark);
 }
 
 /* HERO */
 .hero {
-  background: #14532d;
-  color: white;
+  background: var(--surface-alt); /* lighter, modern neutral */
+  color: var(--text-dark);
   text-align: center;
   padding: 80px 20px;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .hero-title {
   font-size: 64px;
   font-weight: 800;
   margin-bottom: 10px;
+  color: var(--text-dark);
 }
 
 .hero-subtitle {
   font-size: 20px;
   max-width: 700px;
   margin: 0 auto;
-  opacity: 0.9;
+  opacity: 0.8;
+  color: var(--text-muted);
 }
 
 .hero-buttons {
@@ -44,6 +53,7 @@
   gap: 20px;
 }
 
+/* Buttons */
 .btn-primary,
 .btn-secondary,
 .btn-dark {
@@ -54,26 +64,28 @@
   transition: 0.2s ease;
 }
 
-/* Buttons */
+/* Primary button (green accent) */
 .btn-primary {
-  background: white;
-  color: var(--green);
-}
-
-.btn-primary:hover {
-  background: #e8e8e8;
-}
-
-.btn-secondary {
-  border: 2px solid white;
+  background: var(--green);
   color: white;
 }
 
-.btn-secondary:hover {
-  background: white;
+.btn-primary:hover {
+  background: #12863d;
+}
+
+/* Secondary button (outline) */
+.btn-secondary {
+  border: 2px solid var(--green);
   color: var(--green);
 }
 
+.btn-secondary:hover {
+  background: var(--green);
+  color: white;
+}
+
+/* Dark button */
 .btn-dark {
   background: var(--dark);
   color: white;
@@ -85,7 +97,7 @@
 
 /* FEATURES */
 .features {
-  background: var(--gray-light);
+  background: var(--surface);
   padding: 80px 20px;
 }
 
@@ -94,6 +106,7 @@
   font-size: 36px;
   font-weight: 700;
   margin-bottom: 40px;
+  color: var(--text-dark);
 }
 
 .feature-grid {
@@ -110,25 +123,27 @@
 }
 
 .feature-card {
-  background: white;
+  background: var(--surface);
   padding: 30px;
   border-radius: var(--radius);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
 }
 
 .feature-title {
   font-size: 22px;
   font-weight: 700;
   margin-bottom: 10px;
+  color: var(--text-dark);
 }
 
 .feature-desc {
-  color: var(--gray);
+  color: var(--text-muted);
 }
 
 /* WHY SECTION */
 .why {
   padding: 80px 20px;
+  background: var(--surface-alt);
 }
 
 .why-grid {
@@ -145,31 +160,32 @@
 }
 
 .value-card {
-  background: white;
+  background: var(--surface);
   padding: 30px;
   border-radius: var(--radius);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
 }
 
 .value-title {
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 8px;
+  color: var(--text-dark);
 }
 
 .value-text {
-  color: var(--gray);
+  color: var(--text-muted);
 }
 
 /* DOWNLOAD */
 .download {
-  background: var(--gray-light);
+  background: var(--surface);
   padding: 80px 20px;
   text-align: center;
 }
 
 .download-text {
-  color: var(--gray);
+  color: var(--text-muted);
   margin-bottom: 30px;
 }
 
@@ -183,7 +199,7 @@
 .footer {
   text-align: center;
   padding: 20px;
-  color: var(--gray);
+  color: var(--text-muted);
   font-size: 14px;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #e5e7eb;
 }

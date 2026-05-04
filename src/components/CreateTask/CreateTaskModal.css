@@ -10,8 +10,10 @@
 
 /* Modal card fade-in */
 .modalCard {
-    @apply bg-[var(--green-card)] border border-[var(--green-accent)] rounded-lg p-6 w-[450px] shadow-xl;
-    color: var(--green-text);
+    @apply rounded-lg p-6 w-[450px] shadow-xl border;
+    background: #ffffff;              /* clean white modal */
+    border-color: #e5e7eb;            /* subtle neutral border */
+    color: #1f2937;                   /* dark readable text */
     animation: scaleFadeIn 0.25s ease-out;
 }
 
@@ -22,7 +24,11 @@
 
 .modalClose {
     @apply text-lg cursor-pointer px-2;
-    color: var(--green-text);
+    color: #6b7280; /* muted gray */
+}
+
+.modalClose:hover {
+    color: #111;
 }
 
 /* Form */
@@ -36,24 +42,40 @@
 
 label {
     @apply text-sm mb-1;
-    color: var(--green-text);
+    color: #374151; /* neutral dark gray */
 }
 
 .inputField,
 .textareaField,
 .selectField {
     @apply w-full p-2 rounded border;
-    background: var(--green-card);
-    border-color: var(--green-accent);
-    color: var(--green-text);
+    background: #f9fafb;              /* light neutral input */
+    border-color: #d1d5db;            /* neutral border */
+    color: #1f2937;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.inputField:focus,
+.textareaField:focus,
+.selectField:focus {
+    outline: none;
+    border-color: #16a34a;            /* emerald accent */
+    background: #ffffff;
 }
 
 .textareaField {
     @apply h-24 resize-none;
 }
 
+/* Primary button */
 .btnPrimary {
-    @apply mt-4 w-full py-2 rounded bg-[var(--green-accent)] text-white font-semibold;
+    @apply mt-4 w-full py-2 rounded font-semibold text-white;
+    background: #16a34a;              /* emerald primary */
+    transition: background 0.2s ease;
+}
+
+.btnPrimary:hover {
+    background: #0f7a37;              /* darker emerald */
 }
 
 /* Animations */

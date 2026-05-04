@@ -5,7 +5,9 @@
 
 @supports (-webkit-touch-callout: none) {
 
-    /* Form Controls (inputs, selects, textareas)*/
+    /* -----------------------------------------------------
+       Form Controls (inputs, selects, textareas)
+       ----------------------------------------------------- */
 
     select,
     input[type="date"],
@@ -22,29 +24,35 @@
         font-size: 16px; /* prevents iOS zoom-on-focus */
     }
 
-    /* Fix Safari dark-mode forcing inverted colors */
+    /* Prevent iOS dark mode from inverting colors */
     input, select, textarea {
         color-scheme: light;
     }
 
 
-    /* Scroll + Overflow Fixes*/
+    /* -----------------------------------------------------
+       Scroll + Overflow Fixes
+       ----------------------------------------------------- */
 
     html, body {
         -webkit-overflow-scrolling: touch;
         overscroll-behavior: none;
     }
 
-    /* Fix scrolling inside modals, drawers, sidebars */
+    /* Any scrollable container in your new UI */
     .scroll-container,
-    .modal-content,
-    .drawer-content {
+    .modalCard,
+    .pendingModalCard,
+    .taskTreeContainer,
+    .commentsSection {
         -webkit-overflow-scrolling: touch;
         overflow-y: auto;
     }
 
 
-    /* Buttons + Touch Activation*/
+    /* -----------------------------------------------------
+       Buttons + Touch Activation
+       ----------------------------------------------------- */
 
     button,
     .clickable {
@@ -52,13 +60,15 @@
         -webkit-tap-highlight-color: rgba(0,0,0,0.1);
     }
 
-    /* Prevent double-tap zoom on buttons */
+    /* Prevent double-tap zoom */
     button {
         touch-action: manipulation;
     }
 
 
-    /* Fixed Header / Toolbar Stability */
+    /* -----------------------------------------------------
+       Fixed Header / Toolbar Stability
+       ----------------------------------------------------- */
 
     .fixed,
     .sticky {
@@ -67,10 +77,12 @@
     }
 
 
-    /* Chevron / Icon Rotation Stability */
+    /* -----------------------------------------------------
+       Chevron / Icon Rotation Stability
+       ----------------------------------------------------- */
 
     .chevron {
-        display: inline-block; /* required for rotation */
+        display: inline-block;
         transition: transform 0.2s ease;
     }
 
@@ -79,16 +91,21 @@
     }
 
 
-    /* Modal Backdrop Fix (iOS ignores backdrop-filter) */
+    /* -----------------------------------------------------
+       Modal Backdrop Fix (iOS ignores backdrop-filter)
+       ----------------------------------------------------- */
 
-    .modal-backdrop {
+    .modalBackdrop,
+    .pendingModalBackdrop {
         background: rgba(0,0,0,0.35);
         -webkit-backdrop-filter: blur(4px);
         backdrop-filter: blur(4px);
     }
 
 
-    /* Prevent iOS Safari input zoom on focus */
+    /* -----------------------------------------------------
+       Prevent iOS Safari input zoom on focus
+       ----------------------------------------------------- */
 
     input,
     select,

@@ -5,28 +5,36 @@
     display: inline-block;
 }
 
+/* Tooltip bubble */
 .tooltip .tooltiptext {
     visibility: hidden;
     opacity: 0;
+
+    /* Layout */
     width: max-content;
-    max-width: 200px;
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 4px 8px;
-    border-radius: 4px;
+    max-width: 220px;
+    padding: 6px 10px;
+    border-radius: 6px;
+
+    /* Modern palette */
+    background-color: #1f2937; /* neutral dark gray */
+    color: #f9fafb;            /* soft white */
     font-size: 12px;
 
+    /* Positioning */
     position: absolute;
-    z-index: 10;
-    bottom: 125%; /* above the button */
+    z-index: 20;
+    bottom: 125%;
     left: 50%;
     transform: translateX(-50%);
 
+    /* Polish */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     transition: opacity 0.2s ease;
     pointer-events: none;
 }
 
+/* Show on hover */
 .tooltip:hover .tooltiptext {
     visibility: visible;
     opacity: 1;

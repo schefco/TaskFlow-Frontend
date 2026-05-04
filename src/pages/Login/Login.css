@@ -3,42 +3,42 @@
 /* Container */
 .loginWrapper {
     @apply min-h-screen flex items-center justify-center;
-    background: var(--green-bg);
+    background: #f3f4f6; /* light neutral background */
 }
 
 /* Card */
 .loginCard {
-    @apply w-full max-w-md p-6 rounded-lg border shadow;
-    background: var(--green-card);
-    border-color: var(--green-accent);
-    color: var(--green-text);
+    @apply w-full max-w-md p-6 rounded-lg border shadow-sm;
+    background: white; /* clean white card */
+    border-color: #e5e7eb; /* subtle neutral border */
+    color: #1f2937; /* dark text */
 }
 
 /* Title */
 .loginTitle {
     @apply text-2xl font-semibold text-center mb-6;
-    color: var(--green-text-strong);
+    color: #1f2937;
 }
 
 /* Label */
 .loginLabel {
     @apply block text-sm mb-1;
-    color: var(--green-text);
+    color: #374151; /* neutral gray */
 }
 
 /* Input */
 .loginInput {
     @apply w-full px-3 py-2 rounded border;
-    border-color: var(--green-accent);
-    background: var(--green-card);
-    color: var(--green-text);
+    border-color: #d1d5db; /* neutral border */
+    background: #f9fafb; /* light neutral input */
+    color: #1f2937;
     transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .loginInput:focus {
     outline: none;
-    border-color: var(--green-text-strong);
-    background: var(--green-card);
+    border-color: #16a34a; /* emerald accent */
+    background: white;
 }
 
 /* Button */
@@ -48,30 +48,29 @@
 
 .loginButton {
     @apply px-6 py-2 rounded font-medium;
-    background: var(--green-accent);
-    color: var(--green-text-strong);
+    background: #16a34a; /* emerald primary */
+    color: white;
     transition: background 0.2s ease;
 }
 
 .loginButton:hover {
-    background: var(--green-text);
-    color: var(--green-card);
+    background: #12863d; /* darker emerald */
 }
 
 /* Footer */
 .loginFooter {
     @apply text-center text-sm mt-4;
-    color: var(--green-text);
+    color: #6b7280; /* muted gray */
 }
 
 .loginLink {
     @apply font-semibold ml-1;
-    color: var(--green-text-strong);
+    color: #16a34a; /* emerald accent */
     transition: color 0.2s ease;
 }
 
 .loginLink:hover {
-    color: var(--green-accent);
+    color: #0f7a37; /* darker emerald */
 }
 
 /* First-Time-Password */

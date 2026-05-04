@@ -6,12 +6,17 @@
 
 /* Collapsed row */
 .taskRow {
-    @apply flex flex-col p-3 rounded border mb-2 cursor-pointer;
-    background: var(--green-card);
-    border-color: var(--green-accent);
-    color: var(--green-text);
+    @apply flex flex-col p-3 rounded border mb-2 cursor-pointer shadow-sm;
+    background: #ffffff;              /* white card */
+    border-color: #e5e7eb;            /* neutral border */
+    color: #1f2937;                   /* dark text */
 }
 
+.taskRow:hover {
+    border-color: #16a34a;            /* emerald accent */
+}
+
+/* Top row */
 .taskRowTop {
     @apply flex items-center justify-between w-full;
 }
@@ -22,28 +27,33 @@
 
 /* Task Action Buttons */
 .expandButton {
-    @apply text-sm px-1 rounded;
-    background: var(--green-card);
-    color: var(--green-text);
-    border: 1px solid var(--green-accent);
+    @apply text-sm px-1 rounded border;
+    background: #ffffff;
+    color: #374151;
+    border-color: #d1d5db;
+    transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .expandButton:hover {
-    background-color: var(--green-accent);
+    background-color: #16a34a;
+    color: white;
+    border-color: #16a34a;
 }
 
 .addTaskButton,
 .editButton {
     @apply text-xs px-2 py-1 rounded border;
-    border-color: var(--green-accent);
-    background: var(--green-card);
-    color: var(--green-text);
-    transition: background 0.2s ease;
+    border-color: #d1d5db;
+    background: #ffffff;
+    color: #374151;
+    transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .addTaskButton:hover,
 .editButton:hover {
-    background: var(--green-accent);
+    background: #16a34a;
+    color: white;
+    border-color: #16a34a;
 }
 
 .deleteButton {
@@ -52,15 +62,16 @@
   height: 22px;
   font-size: 12px;
   line-height: 1;
-  border: 1px solid var(--green-accent);
-  background: var(--green-card);
-  color: var(--green-text);
-  transition: background 0.15s ease, color 0.15s ease;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  color: #374151;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
 
 .deleteButton:hover {
-  background: var(--green-accent);
-  color: var(--green-text-strong);
+  background: #dc2626; /* red delete hover */
+  color: white;
+  border-color: #dc2626;
 }
 
 .taskTitle {
@@ -71,12 +82,13 @@
     @apply flex items-center gap-4 text-xs;
 }
 
+/* Status + Priority */
 .taskStatus,
 .taskPriority {
     @apply px-2 py-1 rounded text-xs border;
-    border-color: var(--green-accent);
-    background: var(--green-card);
-    color: var(--green-text);
+    border-color: #d1d5db;
+    background: #f9fafb;
+    color: #374151;
 }
 
 /* Expanded section */
@@ -89,12 +101,12 @@
     overflow: hidden;
     max-height: 0;
     opacity: 0;
-    @apply ml-6 mt-2 text-sm text-green-100;
+    @apply ml-6 mt-2 text-sm text-gray-600;
     transition: max-height 0.25s ease, opacity 0.2s ease;
 }
 
 .taskDescriptionWrapper.open {
-    max-height: 500px; /* enough for long descriptions */
+    max-height: 500px;
     opacity: 1;
 }
 
@@ -111,10 +123,10 @@
 
 /* Comments Section */
 .commentsSection {
-    @apply ml-6 mt-3 p-3 rounded border;
-    border-color: var(--green-accent);
-    background: var(--green-card);
-    color: var(--green-text);
+    @apply ml-6 mt-3 p-3 rounded border shadow-sm;
+    border-color: #e5e7eb;
+    background: #ffffff;
+    color: #1f2937;
 }
 
 /* Add Comment Row */
@@ -124,21 +136,28 @@
 
 .commentInput {
     @apply flex-1 px-2 py-1 rounded border text-sm;
-    border-color: var(--green-accent);
-    background: var(--green-card);
-    color: var(--green-text);
+    border-color: #d1d5db;
+    background: #f9fafb;
+    color: #1f2937;
+}
+
+.commentInput:focus {
+    outline: none;
+    border-color: #16a34a;
 }
 
 .commentAddButton {
     @apply px-3 py-1 rounded border text-xs;
-    border-color: var(--green-accent);
-    background: var(--green-card);
-    color: var(--green-text);
-    transition: background 0.2s ease;
+    border-color: #d1d5db;
+    background: #ffffff;
+    color: #374151;
+    transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .commentAddButton:hover {
-    background: var(--green-accent);
+    background: #16a34a;
+    color: white;
+    border-color: #16a34a;
 }
 
 /* Comment List */
@@ -148,19 +167,19 @@
 
 .commentItem {
     @apply p-2 rounded border;
-    border-color: var(--green-accent);
-    background: var(--green-card);
+    border-color: #e5e7eb;
+    background: #ffffff;
 }
 
 .commentContent {
-    @apply text-sm;
+    @apply text-sm text-gray-700;
 }
 
 .commentMeta {
-    @apply text-xs opacity-70 mt-1;
+    @apply text-xs opacity-70 mt-1 text-gray-500;
 }
 
 .commentAuthor {
     font-weight: 600;
-    color: var(--green-text);
+    color: #16a34a; /* emerald accent */
 }
