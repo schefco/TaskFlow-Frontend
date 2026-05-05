@@ -100,7 +100,7 @@ export default function LoginPage() {
                 <p className="loginFooter">Created by Schefco 2026</p>
             </div>
 
-            <div>
+            <div className="loginCard">
                 <p className="loginInfo">
                     This is a live portfolio demo of TaskFlow — a project and task management system 
                     built to showcase real-world authentication, user approval workflows, and 
