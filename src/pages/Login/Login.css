@@ -73,6 +73,10 @@
     color: #0f7a37; /* darker emerald */
 }
 
+.loginInfo {
+    @apply text-sm text-gray-600 text-center mt-4 leading-relaxed max-w-md mx-auto;
+}
+
 /* First-Time-Password */
 /* Container */
 .ftp-container {
