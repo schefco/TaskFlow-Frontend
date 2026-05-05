@@ -2,7 +2,7 @@
 
 /* Container */
 .loginWrapper {
-    @apply min-h-screen flex items-center justify-center;
+    @apply min-h-screen flex flex-col items-center justify-center;
     background: #f3f4f6; /* light neutral background */
 }
 
