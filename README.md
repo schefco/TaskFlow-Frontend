@@ -34,22 +34,22 @@ It is built using ASP.NET Core, React, and PostgreSQL, with a focus on clean API
 ## Screenshots
 
 ### Login
-![Login Screen](taskflowLogin.jpg)
+![Login Screen](images/taskflowLogin.jpg)
 
 ---
 
 ### Splash / Landing Page
-![Splash Screen](taskflowSplash.jpg)
+![Splash Screen](images/taskflowSplash.jpg)
 
 ---
 
 ### Projects Dashboard
-![Projects View](taskFlowProject.jpg)
+![Projects View](images/taskFlowProject.jpg)
 
 ---
 
 ### Task / FTP Management View
-![Task Management](taskflowFTP.jpg)
+![Task Management](images/taskflowFTP.jpg)
 
 ---
 
