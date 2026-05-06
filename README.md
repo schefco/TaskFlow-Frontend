@@ -1,92 +1,113 @@
-# TaskFlow Frontend
+# TaskFlow
 
-TaskFlow is a modern project and task management application designed for clarity, speed, and simplicity.  
-This repository contains the frontend client built with React, TypeScript, and Vite.
+TaskFlow is a full-stack workflow and task management system designed for structured task tracking, role-based access control, and backend-driven workflows.
+
+It is built using ASP.NET Core, React, and PostgreSQL, with a focus on clean API design, data modeling, and responsive user experience.
+
+---
 
 ## Features
 
-- User authentication and role-based access control (Owner and User)
-- Project creation, editing, and management
-- Task tracking with subtasks and progress indicators
-- User administration (Owner only)
-- Pending user approval workflow (Owner only)
-- First-time password reset flow
-- Responsive, clean UI built with CSS and utility classes
-- API communication via Axios with secure token handling
+- User authentication with JWT-based session handling  
+- Role-based access control (Owner and User roles)  
+- Project creation and management  
+- Task tracking with subtasks and progress indicators  
+- User management and approval workflow (Owner-only features)  
+- First-time password reset flow  
+- API-driven frontend architecture using Axios  
+- Responsive UI built with React and modular components  
+
+---
 
 ## Tech Stack
 
-- React 18
-- TypeScript
-- Vite
-- Zustand (state management)
-- React Router
-- Axios
-- React Hot Toast
-- CSS modules and custom styling
+- React 18 + TypeScript  
+- ASP.NET Core Web API  
+- PostgreSQL  
+- Zustand (state management)  
+- React Router  
+- Axios  
+- Vite  
 
-## Project Structure
+---
 
-src/
-api/               API request helpers
-components/        Reusable UI components
-pages/             Application pages
-store/             Zustand stores
-utils/             Utility functions (JWT decoding, helpers)
-App.tsx            Application routes
-main.tsx           Entry point
+## Screenshots
 
-Code
+### Login
+![Login Screen](taskflowLogin.jpg)
 
-## Environment Variables
+---
 
-Create a `.env` file in the project root:
+### Splash / Landing Page
+![Splash Screen](taskflowSplash.jpg)
 
-VITE_API_URL=https://your-backend-url/api
+---
 
-Code
+### Projects Dashboard
+![Projects View](taskFlowProject.jpg)
+
+---
+
+### Task / FTP Management View
+![Task Management](taskflowFTP.jpg)
+
+---
+
+## System Overview
+
+TaskFlow is structured as a full-stack system with a clear separation between frontend and backend services:
+
+- React frontend client for UI and state management  
+- ASP.NET Core REST API backend for business logic and authentication  
+- PostgreSQL database for relational data modeling  
+- JWT-based authentication with role-aware routing and access control  
+
+The system is designed around workflow-driven task management with structured relationships between users, projects, and tasks.
+
+---
 
 ## Running the Project
 
-Install dependencies:
-
+### Install dependencies
+```bash
 npm install
+```
 
-Code
-
-Start the development server:
-
+### Start development server
+```bash
 npm run dev
+```
 
-Code
-
-Build for production:
-
+### Build for production
+```bash
 npm run build
+```
 
-Code
-
-Preview production build:
-
+### Preview production build
+```bash
 npm run preview
+```
 
-Code
+---
+
+## Environment Variables
+
+### Create a .env file in the project root:
+```env
+VITE_API_URL=https://your-backend-url/api
+```
+
+---
 
 ## Authentication Flow
+- Users authenticate with email and password
+- JWT token is issued and stored client-side
+- Role-based routing restricts access to protected pages
+- First-time login triggers password reset flow if required
 
-- Users log in with email and password.
-- If the backend indicates `requiresPasswordReset`, the user is redirected to the first-time password page.
-- JWT tokens are decoded client-side to extract userId, email, and role.
-- Role-based routing ensures Owner-only pages remain restricted.
 
-## Owner-Only Pages
-
-- Pending Users
-- Users List
-- User Detail
-
-These routes are protected both in the UI and via backend authorization.
+---
 
 ## License
 
-This project is open source and available for review, learning, and extension.
+This project is available for learning, review, and portfolio demonstration purposes.
