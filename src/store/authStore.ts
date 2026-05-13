@@ -7,17 +7,7 @@ import { persist, createJSONStorage } from "zustand/middleware";
 interface AuthState {
     isAuthenticated: boolean;
 
-    userId: string | null;
-    email: string | null;
-    role: string | null;
-    token: string | null;
-
-    login: (data?: {
-        userId?: string;
-        email?: string;
-        role?: string;
-        token?: string;
-    }) => void;
+    login: () => void;
 
     logout: () => void;
 
@@ -33,20 +23,12 @@ export const useAuthStore = create<AuthState>()(
         (set) => ({
         // Intitial state
         isAuthenticated: false,
-        userId: null,
-        email: null,
-        role: null,
-        token: null,
 
 
         // Login: mark user as authenticated (cookie handles idenity)
-        login: (data) => {
-            set((state) => ({ 
-                isAuthenticated: true,
-                userId: data?.userId ?? state.userId,
-                email: data?.email ?? state.email,
-                role: data?.role ?? state.role,
-                token: data?.token ?? state.token,            
+        login: () => {
+            set(() => ({ 
+                isAuthenticated: true            
             }));
         },
         

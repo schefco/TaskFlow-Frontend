@@ -8,13 +8,13 @@ export default function MainLayout() {
 
     const navigate = useNavigate(); // Initialize navigation so we can redirect
 
-    const handleLogout = () => {
+    const handleLogout = async () => {
         // Clear the auth state (token, user, etc.)
-        logout();
+        await logout();
 
         // Redirect user back to the login page
         navigate("/login");
-    }
+    };
 
     // Outer wrapper for the entire layout
     return (

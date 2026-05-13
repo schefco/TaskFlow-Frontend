@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import "./Login.css";
-import { decodeJwt } from "../../utils/jwt";
 
 // Login Page
 export default function LoginPage() {
@@ -15,7 +14,6 @@ export default function LoginPage() {
 
     // Zustand login function
     const login = useAuthStore((state) => state.login);
-    const setTempToken = useAuthStore((state) => state.setTempToken);
 
     // Router navigation
     const navigate = useNavigate();
@@ -27,27 +25,23 @@ export default function LoginPage() {
 
         try {
             // Send creds to backend and see if we need to reset password
-            const { token, requiresPasswordReset } = await loginUser({ email, password });
+            const { requiresPasswordReset } = await loginUser({ email, password });
 
             // Check for first time login
             // Redirect to password reset
             if (requiresPasswordReset) {
-                setTempToken(token);
                 toast("Please set your new password");
                 navigate("/Login/first-time-password");
                 return;
             }
 
-            // Decode the JWT to get userId, email and role
-            const decoded = decodeJwt(token);
+            // Cookie is set - fetch user info
+            await fetch("/api/auth/me", {
+                credentials: "include"
+            });
 
             // Store token and decoded user info in Zustand
-            login({
-                userId: decoded.userId,
-                email: decoded.email,
-                role: decoded.role,
-                token
-            });
+            login();
 
             // Redirect to projects page
             navigate("/");

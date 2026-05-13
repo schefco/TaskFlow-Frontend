@@ -1,9 +1,31 @@
 import { NavLink } from "react-router-dom";
-import { useAuthStore } from "../../store/authStore";
 import "./MainLayout.css";
+import { useEffect, useState } from "react";
 
 export default function Sidebar() {
-    const user = useAuthStore(state => state.role);
+    const [role, setRole] = useState<string | null>(null);
+
+    useEffect(() => {
+        async function loadUser() {
+            try {
+                const res = await fetch("/api/auth/me", {
+                    credentials: "include"
+                });
+
+                if (!res.ok) {
+                    setRole(null);
+                    return;
+                }
+
+                const user = await res.json();
+                setRole(user.role);
+            } catch {
+                setRole(null);
+            }
+        }
+
+        loadUser();
+    }, [])
 
     return (
         <div className="main-sidebar">
@@ -17,13 +39,13 @@ export default function Sidebar() {
                 Projects
             </NavLink>
             
-            {user === "Owner" && (
+            {role === "Owner" && (
                 <NavLink to="/pending-users" 
                 className={({ isActive }) => isActive ? "sidebar-link active" : "sidebar-link"}>
                     Pending Users
                 </NavLink>)}
             
-            {user === "Owner" && (
+            {role === "Owner" && (
                 <NavLink to="/users"
                 className={({ isActive }) => isActive ? "sidebar-link active" : "sidebar-link"}>
                     Users

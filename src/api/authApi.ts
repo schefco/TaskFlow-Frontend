@@ -25,7 +25,7 @@ export interface UserDto {
 }
 
 // Call the backend /auth/login endpoint
-export async function loginUser(data: LoginRequest): Promise<{ token: string; requiresPasswordReset: boolean }> {
+export async function loginUser(data: LoginRequest): Promise<{ requiresPasswordReset: boolean }> {
     // POST email and password to the backend
     const response = await api.post("/auth/login", {
         email: data.email,

@@ -1,18 +1,43 @@
 /** For RBAC of navlinks */
+import { useState, useEffect } from "react";
 import { Navigate } from "react-router-dom";
-import { useAuthStore } from "../../store/authStore";
 import type { JSX } from "react";
 
 export default function OwnerRoute({ children }: { children: JSX.Element }) {
-    const role = useAuthStore(state => state.role );
+    const [authorized, setAuthorized] = useState(false);
+    const [loading, setLoading] = useState(true);
 
-    // If user is not loaded yet
-    if (!role) return null;
+    useEffect(() => {
+        // Verify the user is the "Owner"
+        async function verify() {
+            try {
+                const res = await fetch("api/auth/me", {
+                    credentials: "include"
+                });
 
-    // Only allow Owner
-    if (role !== "Owner") {
-        return <Navigate to="/welcome" replace />
-    }
+                if (!res.ok) {
+                    setAuthorized(false);
+                    return;
+                }
 
-    return children;
+                const user = await res.json();
+
+                if (user.role === "Owner") { // If owner, Authorize
+                    setAuthorized(true);
+                } else {
+                    setAuthorized(false); // If not, don't authorize
+                }
+            } catch {
+                setAuthorized(false);
+            } finally {
+                setLoading(false)
+            }
+        }
+
+        verify();
+    }, [])
+
+    if (loading) return null;
+
+    return authorized ? children : <Navigate to="/welcome" replace></Navigate>;
 }
