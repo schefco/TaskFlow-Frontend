@@ -64,7 +64,11 @@ export default function FirstTimePasswordPage() {
 
             useAuthStore.getState().clearTempToken();
 
-            login();
+            // Fetch user id from backend
+            const meRes = await api.get("/auth/me", { withCredentials: true });
+            const me = meRes.data;
+
+            login(me.userId, me.email, me.role);
             toast.success("Password updated successfully"); // Great sucess!
             navigate("/");
         } catch {

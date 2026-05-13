@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import "./Login.css";
+import api from "../../api/axios";
 
 // Login Page
 export default function LoginPage() {
@@ -36,12 +37,11 @@ export default function LoginPage() {
             }
 
             // Cookie is set - fetch user info
-            await fetch("/api/auth/me", {
-                credentials: "include"
-            });
+            const meRes = await api.get("/auth/me", { withCredentials: true });
+            const me = meRes.data;
 
             // Store token and decoded user info in Zustand
-            login();
+            login(me.userId, me.email, me.role);
 
             // Redirect to projects page
             navigate("/");
