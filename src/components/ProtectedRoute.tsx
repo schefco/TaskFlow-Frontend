@@ -1,35 +1,11 @@
-import { useEffect, useState, type ReactNode } from "react";
 import { Navigate } from "react-router-dom";
+import { useAuthStore } from "../store/authStore";
+import type { ReactNode } from "react";
 
-// Wrapper component to protext pages that require login
+// Wrapper component to protect pages that require login
 export default function ProtectedRoute({ children }: { children: ReactNode }) {
-    // Read auth state from Zustand
-    const [loading, setLoading] = useState(true);
-    const [authorized, setAuthorized] = useState(false);
+    // Check if authenticated
+    const isAuthenticated = useAuthStore(state => state.isAuthenticated)
 
-    useEffect(() => {
-        async function verify() {
-            try {
-                const res = await fetch("/auth/me", {
-                    credentials: "include"
-                });
-
-                if (res.ok) {
-                    setAuthorized(true);
-                } else {
-                    setAuthorized(false);
-                }
-            } catch {
-                setAuthorized(false);
-            } finally {
-                setLoading(false);
-            }
-        }
-        verify();
-    }, [])
-
-    if (loading) return null; 
-
-    // Otherwise render the protected content
-    return authorized ? children : <Navigate to="/login" replace></Navigate>
+    return isAuthenticated ? children : <Navigate to="/login" replace></Navigate>
 }

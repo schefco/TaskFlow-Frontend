@@ -1,31 +1,9 @@
 import { NavLink } from "react-router-dom";
 import "./MainLayout.css";
-import { useEffect, useState } from "react";
+import { useAuthStore } from "../../store/authStore";
 
 export default function Sidebar() {
-    const [role, setRole] = useState<string | null>(null);
-
-    useEffect(() => {
-        async function loadUser() {
-            try {
-                const res = await fetch("/auth/me", {
-                    credentials: "include"
-                });
-
-                if (!res.ok) {
-                    setRole(null);
-                    return;
-                }
-
-                const user = await res.json();
-                setRole(user.role);
-            } catch {
-                setRole(null);
-            }
-        }
-
-        loadUser();
-    }, [])
+    const role = useAuthStore(state => state.role);
 
     return (
         <div className="main-sidebar">
