@@ -14,8 +14,23 @@ import UserDetailPage from "./pages/UsersPage/UserDetailPage";
 import ProjectDetailsPage from "./pages/Projects/ProjectDetailsPage";
 import SplashPage from "./pages/SplashPage/SplashPage";
 import OwnerRoute from "./components/OwnerRoute/OwnerRoute";
+import { useAuthStore } from "./store/authStore";
+import { useEffect, useState } from "react";
 
 function App() {
+  const checkAuth = useAuthStore(state => state.checkAuth);
+  const [initialized, setInitialized] = useState(false);
+
+  useEffect(() => {
+    async function init() {
+      await checkAuth();
+      setInitialized(true);
+    }
+    init();
+  }, []);
+
+  if (!initialized) return null;
+
   return (
     <BrowserRouter>
       <Routes>

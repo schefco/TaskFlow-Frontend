@@ -7,7 +7,11 @@ import { persist, createJSONStorage } from "zustand/middleware";
 interface AuthState {
     isAuthenticated: boolean;
 
-    login: () => void;
+    userId: string | null;
+    email: string | null;
+    role: string | null;
+
+    login: (userId: string, email: string, role: string) => void;
 
     logout: () => void;
 
@@ -15,6 +19,7 @@ interface AuthState {
     tempToken: string | null;
     setTempToken: (token: string) => void;
     clearTempToken: () => void;
+    checkAuth: () => void;
 }
 
 // Zustand store for authentication
@@ -24,11 +29,18 @@ export const useAuthStore = create<AuthState>()(
         // Intitial state
         isAuthenticated: false,
 
+        userId: null,
+        email: null,
+        role: null,
+
 
         // Login: mark user as authenticated (cookie handles idenity)
-        login: () => {
+        login: (userId, email, role) => {
             set(() => ({ 
-                isAuthenticated: true            
+                isAuthenticated: true,
+                userId,
+                email,
+                role            
             }));
         },
         
@@ -36,6 +48,39 @@ export const useAuthStore = create<AuthState>()(
         tempToken: null, 
         setTempToken: (token) => set({ tempToken: token }), // sets the temp token so we don't lose it during refresh
         clearTempToken: () => set({ tempToken: null }), // clears the temp token after first password reset
+
+        checkAuth: async () => {
+            try {
+                const res = await fetch("/api/auth/me", {
+                    credentials: "include"
+                });
+
+                if (res.ok) {
+                    const me = await res.json();
+
+                    set({ 
+                        isAuthenticated: true,
+                        userId: me.userId,
+                        email: me.email,
+                        role: me.role
+                    });
+                } else {
+                    set({ 
+                        isAuthenticated: false,
+                        userId: null,
+                        email: null,
+                        role: null
+                    });
+                }
+            } catch {
+                set({ 
+                    isAuthenticated: false,
+                    userId: null,
+                    email: null,
+                    role: null
+                });
+            }
+        },
 
         // Logout: clear everything
         logout: () => 
