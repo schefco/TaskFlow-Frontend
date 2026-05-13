@@ -8,7 +8,7 @@ export default function Sidebar() {
     useEffect(() => {
         async function loadUser() {
             try {
-                const res = await fetch("/api/auth/me", {
+                const res = await fetch("/auth/me", {
                     credentials: "include"
                 });
 

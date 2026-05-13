@@ -10,7 +10,7 @@ export default function ProtectedRoute({ children }: { children: ReactNode }) {
     useEffect(() => {
         async function verify() {
             try {
-                const res = await fetch("/api/auth/me", {
+                const res = await fetch("/auth/me", {
                     credentials: "include"
                 });
 

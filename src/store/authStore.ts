@@ -51,7 +51,7 @@ export const useAuthStore = create<AuthState>()(
 
         checkAuth: async () => {
             try {
-                const res = await fetch("/api/auth/me", {
+                const res = await fetch("/auth/me", {
                     credentials: "include"
                 });
 

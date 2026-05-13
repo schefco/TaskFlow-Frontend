@@ -11,7 +11,7 @@ export default function OwnerRoute({ children }: { children: JSX.Element }) {
         // Verify the user is the "Owner"
         async function verify() {
             try {
-                const res = await fetch("api/auth/me", {
+                const res = await fetch("/auth/me", {
                     credentials: "include"
                 });
 
